@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:virtual_courier/pages/overview.dart';
+import 'package:virtual_courier/pages/intro.dart';
 
 class AfterSplash extends StatefulWidget {
   const AfterSplash({Key? key}) : super(key: key);
@@ -17,9 +17,9 @@ class _AfterSplashState extends State<AfterSplash> {
   void initState() {
     super.initState();
     Timer(
-      const Duration(seconds: 3),
+      const Duration(seconds: 2),
       () => Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const OverView())),
+          context, MaterialPageRoute(builder: (context) => const Intro())),
     );
   }
 
