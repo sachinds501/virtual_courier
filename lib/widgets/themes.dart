@@ -24,7 +24,7 @@ class MyTheme {
       ),
       colorScheme: ColorScheme.fromSwatch().copyWith(
           secondary: const Color.fromARGB(255, 255, 213, 33),
-          primary: cyberYellowColor));
+          primary: Colors.grey[400]));
 
   //Colors
   static Color creamColor = const Color(0xfff5f5f5);
