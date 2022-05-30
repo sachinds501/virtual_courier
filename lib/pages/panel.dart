@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:virtual_courier/utils/routes.dart';
 
 class PanelPage extends StatefulWidget {
   const PanelPage({Key? key}) : super(key: key);
@@ -77,6 +78,7 @@ class _PanelPageState extends State<PanelPage> {
             Spacer(),
             ElevatedButton(
               onPressed: () {
+                Navigator.pushNamed(context, MyRoutes.whattosendroute);
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                   content: const Text('Done Button Pressed'),
                   duration: const Duration(seconds: 1),

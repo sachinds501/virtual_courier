@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: MyTheme.lightTheme(context),
       debugShowCheckedModeBanner: false,
-      initialRoute: MyRoutes.whattosendroute,
+      initialRoute: MyRoutes.loginRoute,
       routes: {
         MyRoutes.loginRoute: (context) => const LoginPage(),
         MyRoutes.splashscreenRoute: (context) => const AfterSplash(),
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         MyRoutes.materialsegmentRoute: (context) => const MaterialSegment(),
         MyRoutes.homemappageroute: (context) => const HomeMapPage(),
         MyRoutes.panelroute: (context) => const PanelPage(),
-        MyRoutes.whattosendroute :(context) => const WhatToSend(),
+        MyRoutes.whattosendroute: (context) => const WhatToSend(),
       },
     );
   }

@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:virtual_courier/pages/whattosend.dart/enterpickup.dart';
 import 'package:virtual_courier/pages/whattosend.dart/itemsize.dart';
@@ -71,7 +70,7 @@ class _WhatToSendState extends State<WhatToSend> {
                           Row(
                             children: [
                               Checkbox(
-                                value: this.value,
+                                value: value,
                                 activeColor:
                                     Theme.of(context).colorScheme.secondary,
                                 onChanged: (bool? value) {

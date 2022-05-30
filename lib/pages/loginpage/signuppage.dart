@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:virtual_courier/utils/routes.dart';
 import 'package:virtual_courier/widgets/themes.dart';
 
 class SignUp extends StatefulWidget {
@@ -134,6 +135,7 @@ class _SignUpState extends State<SignUp> {
           content: const Text('Login Button Pressed'),
           duration: const Duration(seconds: 1),
         ));
+        Navigator.pushNamed(context, MyRoutes.homemappageroute);
       },
       style: ButtonStyle(
           backgroundColor:
