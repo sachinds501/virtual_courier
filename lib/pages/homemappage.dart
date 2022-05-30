@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:virtual_courier/utils/routes.dart';
+
 
 class HomeMapPage extends StatefulWidget {
   const HomeMapPage({Key? key}) : super(key: key);
@@ -49,8 +49,6 @@ class _HomeMapPageState extends State<HomeMapPage> {
             maxHeight: MediaQuery.of(context).size.height,
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-            onPanelOpened: () =>
-                Navigator.pushNamed(context, MyRoutes.panelroute),
             panel: TextFormField(
               decoration: InputDecoration(
                 filled: true,

@@ -33,7 +33,7 @@ class _PanelPageState extends State<PanelPage> {
                 TextFormField(
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Colors.grey[200],
+                    fillColor: Colors.grey[100],
                     border: InputBorder.none,
                     focusedBorder: InputBorder.none,
                     enabledBorder: InputBorder.none,
@@ -48,7 +48,7 @@ class _PanelPageState extends State<PanelPage> {
                 TextFormField(
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Colors.grey[200],
+                    fillColor: Colors.grey[100],
                     border: InputBorder.none,
                     focusedBorder: InputBorder.none,
                     enabledBorder: InputBorder.none,
@@ -63,7 +63,7 @@ class _PanelPageState extends State<PanelPage> {
                 TextFormField(
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Colors.grey[200],
+                    fillColor: Colors.grey[100],
                     border: InputBorder.none,
                     focusedBorder: InputBorder.none,
                     enabledBorder: InputBorder.none,

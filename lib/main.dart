@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:virtual_courier/pages/intro.dart';
-import 'package:virtual_courier/pages/loginpage/homemappage.dart';
+import 'package:virtual_courier/pages/homemappage.dart';
 import 'package:virtual_courier/pages/loginpage/loginpage.dart';
 import 'package:virtual_courier/pages/loginpage/materialsegmentcontrol.dart';
-import 'package:virtual_courier/pages/loginpage/panel.dart';
+import 'package:virtual_courier/pages/panel.dart';
 import 'package:virtual_courier/pages/loginpage/signuppage.dart';
-import 'package:virtual_courier/pages/loginpage/whatareyousending.dart';
+import 'package:virtual_courier/pages/whattosend.dart/whatareyousending.dart';
 import 'package:virtual_courier/pages/splashscreen.dart';
 import 'package:virtual_courier/utils/routes.dart';
 import 'package:virtual_courier/widgets/themes.dart';
