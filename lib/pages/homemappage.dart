@@ -25,34 +25,44 @@ class _HomeMapPageState extends State<HomeMapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-      child: Stack(
-        children: <Widget>[
-          GoogleMap(
-            onMapCreated: _onMapCreated,
-            initialCameraPosition: CameraPosition(
-              target: _center,
-              zoom: 11.0,
-            ),
-          ),
-          FloatingActionButton(
+      body: Builder(
+        builder: (context) => SafeArea(
+          child: Stack(
+            children: <Widget>[
+              GoogleMap(
+                onMapCreated: _onMapCreated,
+                initialCameraPosition: CameraPosition(
+                  target: _center,
+                  zoom: 11.0,
+                ),
+              ),
+              FloatingActionButton(
                   backgroundColor: Colors.white,
                   child: Icon(
                     Icons.dashboard_rounded,
                     color: Colors.black,
                   ),
-                  onPressed: () {})
-              .pOnly(left: 20, top: 50),
-          SlidingUpPanel(
-            boxShadow: const [BoxShadow(blurRadius: 5, color: Colors.grey)],
-            minHeight: MediaQuery.of(context).size.height / 4,
-            maxHeight: MediaQuery.of(context).size.height,
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-            panel: PanelPage(),
-          )
-        ],
+                  onPressed: () {
+                    showBottomSheet(
+                      backgroundColor: Colors.transparent,
+                      context: context,
+                      builder: (context) => SlidingUpPanel(
+                        boxShadow: const [
+                          BoxShadow(blurRadius: 5, color: Colors.grey)
+                        ],
+                        minHeight: MediaQuery.of(context).size.height / 4,
+                        maxHeight: MediaQuery.of(context).size.height,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20)),
+                        panel: PanelPage(),
+                      ),
+                    );
+                  }).pOnly(left: 20, top: 50),
+            ],
+          ),
+        ),
       ),
-    ));
+    );
   }
 }

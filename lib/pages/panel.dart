@@ -95,7 +95,7 @@ class _PanelPageState extends State<PanelPage> {
               child: "Done".text.xl2.black.bold.make(),
             ).wh(MediaQuery.of(context).size.width, 50),
           ],
-        ).p16(),
+        ).pSymmetric(v: 32, h: 16),
       ),
     );
   }
