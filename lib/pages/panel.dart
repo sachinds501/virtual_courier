@@ -42,7 +42,7 @@ class _PanelPageState extends State<PanelPage> {
                     disabledBorder: InputBorder.none,
                     hintText: 'Enter Pickup',
                   ),
-                ),
+                ).cornerRadius(10),
                 SizedBox(
                   height: 10,
                 ),
@@ -57,7 +57,7 @@ class _PanelPageState extends State<PanelPage> {
                     disabledBorder: InputBorder.none,
                     hintText: 'Enter Pickup',
                   ),
-                ),
+                ).cornerRadius(10),
                 SizedBox(
                   height: 10,
                 ),
@@ -72,45 +72,13 @@ class _PanelPageState extends State<PanelPage> {
                     disabledBorder: InputBorder.none,
                     hintText: 'Enter Pickup',
                   ),
-                ),
+                ).cornerRadius(10),
               ],
             ),
-            ListView(
-              children: [
-                ListTile(
-                  title: 'Home'.text.make(),
-                  leading: Icon(Icons.lock_clock),
-                  subtitle:
-                      "Kileleshwa, Likoni Lane, Nairobi, Kenya".text.make(),
-                ),
-                ListTile(
-                  title: 'Work'.text.make(),
-                  leading: Icon(Icons.lock_clock),
-                  subtitle:
-                      "Kileleshwa, Likoni Lane, Nairobi, Kenya".text.make(),
-                ),
-                ListTile(
-                  title: 'Kileleshwa'.text.make(),
-                  leading: Icon(Icons.lock_clock),
-                ),
-                ListTile(
-                  title: 'Work'.text.make(),
-                  leading: Icon(Icons.lock_clock),
-                  subtitle:
-                      "Kileleshwa, Likoni Lane, Nairobi, Kenya".text.make(),
-                ),
-                ListTile(
-                  title: 'Home'.text.make(),
-                  leading: Icon(Icons.lock_clock),
-                  subtitle:
-                      "Kileleshwa, Likoni Lane, Nairobi, Kenya".text.make(),
-                ),
-                ListTile(
-                  title: 'Kileleshwa'.text.make(),
-                  leading: Icon(Icons.lock_clock),
-                ),
-              ],
+            SizedBox(
+              height: 10,
             ),
+            recentSearch(context),
             Spacer(),
             ElevatedButton(
               onPressed: () {
@@ -121,17 +89,59 @@ class _PanelPageState extends State<PanelPage> {
                 ));
               },
               style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      context.theme.colorScheme.secondary),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                  )),
-              child: "Done".text.xl2.black.bold.make(),
+                backgroundColor: MaterialStateProperty.all(
+                    context.theme.colorScheme.secondary),
+                shape: MaterialStateProperty.all(
+                  StadiumBorder(),
+                ),
+              ),
+              child: "Continue".text.xl.white.bold.make(),
             ).wh(MediaQuery.of(context).size.width, 50),
           ],
         ).pSymmetric(v: 32, h: 16),
+      ),
+    );
+  }
+
+  Scrollbar recentSearch(BuildContext context) {
+    return Scrollbar(
+      child: Container(
+        constraints:
+            BoxConstraints(maxHeight: MediaQuery.of(context).size.height / 2.5),
+        child: ListView(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          children: [
+            ListTile(
+              title: 'Home'.text.make(),
+              leading: Icon(Icons.access_time),
+              subtitle: "Kileleshwa, Likoni Lane, Nairobi, Kenya".text.make(),
+            ),
+            ListTile(
+              title: 'Work'.text.make(),
+              leading: Icon(Icons.access_time),
+              subtitle: "Kileleshwa, Likoni Lane, Nairobi, Kenya".text.make(),
+            ),
+            ListTile(
+              title: 'Kileleshwa'.text.make(),
+              leading: Icon(Icons.access_time),
+            ),
+            ListTile(
+              title: 'Work'.text.make(),
+              leading: Icon(Icons.access_time),
+              subtitle: "Kileleshwa, Likoni Lane, Nairobi, Kenya".text.make(),
+            ),
+            ListTile(
+              title: 'Home'.text.make(),
+              leading: Icon(Icons.access_time),
+              subtitle: "Kileleshwa, Likoni Lane, Nairobi, Kenya".text.make(),
+            ),
+            ListTile(
+              title: 'Kileleshwa'.text.make(),
+              leading: Icon(Icons.access_time),
+            ),
+          ],
+        ),
       ),
     );
   }
