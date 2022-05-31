@@ -75,6 +75,42 @@ class _PanelPageState extends State<PanelPage> {
                 ),
               ],
             ),
+            ListView(
+              children: [
+                ListTile(
+                  title: 'Home'.text.make(),
+                  leading: Icon(Icons.lock_clock),
+                  subtitle:
+                      "Kileleshwa, Likoni Lane, Nairobi, Kenya".text.make(),
+                ),
+                ListTile(
+                  title: 'Work'.text.make(),
+                  leading: Icon(Icons.lock_clock),
+                  subtitle:
+                      "Kileleshwa, Likoni Lane, Nairobi, Kenya".text.make(),
+                ),
+                ListTile(
+                  title: 'Kileleshwa'.text.make(),
+                  leading: Icon(Icons.lock_clock),
+                ),
+                ListTile(
+                  title: 'Work'.text.make(),
+                  leading: Icon(Icons.lock_clock),
+                  subtitle:
+                      "Kileleshwa, Likoni Lane, Nairobi, Kenya".text.make(),
+                ),
+                ListTile(
+                  title: 'Home'.text.make(),
+                  leading: Icon(Icons.lock_clock),
+                  subtitle:
+                      "Kileleshwa, Likoni Lane, Nairobi, Kenya".text.make(),
+                ),
+                ListTile(
+                  title: 'Kileleshwa'.text.make(),
+                  leading: Icon(Icons.lock_clock),
+                ),
+              ],
+            ),
             Spacer(),
             ElevatedButton(
               onPressed: () {

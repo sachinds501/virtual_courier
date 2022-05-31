@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:virtual_courier/pages/choosemedium.dart';
 import 'package:virtual_courier/pages/intro.dart';
 import 'package:virtual_courier/pages/homemappage.dart';
 import 'package:virtual_courier/pages/loginpage/loginpage.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: MyTheme.lightTheme(context),
       debugShowCheckedModeBanner: false,
-      initialRoute: MyRoutes.loginRoute,
+      initialRoute: MyRoutes.panelroute,
       routes: {
         MyRoutes.loginRoute: (context) => const LoginPage(),
         MyRoutes.splashscreenRoute: (context) => const AfterSplash(),
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         MyRoutes.homemappageroute: (context) => const HomeMapPage(),
         MyRoutes.panelroute: (context) => const PanelPage(),
         MyRoutes.whattosendroute: (context) => const WhatToSend(),
+        MyRoutes.choosemediumroute: (context) => const ChooseMedium(),
       },
     );
   }

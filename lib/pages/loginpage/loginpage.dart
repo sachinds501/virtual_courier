@@ -37,7 +37,23 @@ class _LoginPageState extends State<LoginPage> {
                   height: 90,
                 ),
                 TextFormField(
-                  decoration: const InputDecoration(hintText: " email"),
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.all(8),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey.shade400),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color: Theme.of(context).colorScheme.secondary,
+                          width: 5),
+                    ),
+                    border: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey.shade400),
+                    ),
+                    hintText: "Email",
+                    labelText: 'Email',
+                    labelStyle: TextStyle(color: Colors.grey[400]),
+                  ),
                   onSaved: (String? value) {
                     // This optional block of code can be used to run
                     // code when the user saves the form.
@@ -52,7 +68,24 @@ class _LoginPageState extends State<LoginPage> {
                   height: 10,
                 ),
                 TextFormField(
-                  decoration: const InputDecoration(hintText: " Password"),
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.all(8),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey.shade400),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color: Theme.of(context).colorScheme.secondary,
+                          width: 5),
+                    ),
+                    border: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey.shade400),
+                    ),
+                    hintText: " Password",
+                    labelText: 'Password',
+                    labelStyle: TextStyle(color: Colors.grey[400]),
+                  ),
+                  obscureText: true,
                   validator: (String? value) {
                     return (value != null && value.length >= 8)
                         ? null

@@ -48,7 +48,7 @@ class _HomeMapPageState extends State<HomeMapPage> {
                       context: context,
                       builder: (context) => SlidingUpPanel(
                         boxShadow: const [
-                          BoxShadow(blurRadius: 5, color: Colors.grey)
+                          BoxShadow(blurRadius: 10, color: Colors.grey)
                         ],
                         minHeight: MediaQuery.of(context).size.height / 4,
                         maxHeight: MediaQuery.of(context).size.height,

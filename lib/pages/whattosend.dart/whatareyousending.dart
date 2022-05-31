@@ -5,6 +5,7 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:virtual_courier/pages/whattosend.dart/enterpickup.dart';
 import 'package:virtual_courier/pages/whattosend.dart/itemsize.dart';
 import 'package:virtual_courier/pages/whattosend.dart/sendingitem.dart';
+import 'package:virtual_courier/utils/routes.dart';
 
 class WhatToSend extends StatefulWidget {
   const WhatToSend({Key? key}) : super(key: key);
@@ -93,6 +94,8 @@ class _WhatToSendState extends State<WhatToSend> {
                                 content: Text('Continue Button Pressed'),
                                 duration: Duration(seconds: 1),
                               ));
+                              Navigator.pushNamed(
+                                  context, MyRoutes.choosemediumroute);
                             },
                             style: ButtonStyle(
                               backgroundColor: MaterialStateProperty.all(

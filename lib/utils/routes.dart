@@ -7,4 +7,5 @@ class MyRoutes {
   static String homemappageroute = 'map';
   static String panelroute = 'panel';
   static String whattosendroute = 'sending';
+  static String choosemediumroute = 'medium';
 }
