@@ -87,25 +87,26 @@ class _WhatToSendState extends State<WhatToSend> {
                               )
                             ],
                           ),
-                          ElevatedButton(
-                            onPressed: () {
-                              ScaffoldMessenger.of(context)
-                                  .showSnackBar(const SnackBar(
-                                content: Text('Continue Button Pressed'),
-                                duration: Duration(seconds: 1),
-                              ));
-                              Navigator.pushNamed(
-                                  context, MyRoutes.choosemediumroute);
-                            },
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
-                                  context.theme.colorScheme.secondary),
-                              shape: MaterialStateProperty.all(
-                                const StadiumBorder(),
+                          if (value = true)
+                            ElevatedButton(
+                              onPressed: () {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(const SnackBar(
+                                  content: Text('Continue Button Pressed'),
+                                  duration: Duration(seconds: 1),
+                                ));
+                                Navigator.pushNamed(
+                                    context, MyRoutes.choosemediumroute);
+                              },
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    context.theme.colorScheme.secondary),
+                                shape: MaterialStateProperty.all(
+                                  const StadiumBorder(),
+                                ),
                               ),
-                            ),
-                            child: "Continue".text.xl.white.bold.make(),
-                          ).wh(MediaQuery.of(context).size.width, 50),
+                              child: "Continue".text.xl.white.bold.make(),
+                            ).wh(MediaQuery.of(context).size.width, 50),
                         ],
                       ).p24(),
                     ),

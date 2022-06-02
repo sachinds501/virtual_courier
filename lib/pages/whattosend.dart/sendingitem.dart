@@ -33,17 +33,23 @@ class _SendingItemState extends State<SendingItem> {
         Expanded(
           child: Center(
             child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                    color: Theme.of(context).colorScheme.secondary, width: 2),
+              ),
+              child:
+                  parser.emojify(':book:  Document').text.bold.xl.make().p(12),
+            ).p8(),
+          ),
+        ),
+        Expanded(
+          child: Center(
+            child: Container(
               color: Colors.grey[100],
               child:
-                  parser.emojify(':car:  Document').text.bold.xl.make().p(12),
-            ).cornerRadius(12).p8(),
-          ),
-        ),
-        Expanded(
-          child: Center(
-            child: Container(
-              color: Colors.grey[100],
-              child: parser.emojify(':coffee:  Food').text.bold.xl.make().p(12),
+                  parser.emojify(':shirt:  Cloths').text.bold.xl.make().p(12),
             ).cornerRadius(12).p12(),
           ),
         ),
@@ -51,15 +57,7 @@ class _SendingItemState extends State<SendingItem> {
           child: Center(
             child: Container(
               color: Colors.grey[100],
-              child: parser.emojify(':coffee:  Food').text.bold.xl.make().p(12),
-            ).cornerRadius(12).p12(),
-          ),
-        ),
-        Expanded(
-          child: Center(
-            child: Container(
-              color: Colors.grey[100],
-              child: parser.emojify(':coffee:  Food').text.bold.xl.make().p(12),
+              child: parser.emojify(':key:  Keys').text.bold.xl.make().p(12),
             ).cornerRadius(12).p12(),
           ),
         ),

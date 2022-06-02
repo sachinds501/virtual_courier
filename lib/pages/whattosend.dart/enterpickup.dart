@@ -33,37 +33,53 @@ class PickUpState extends State<PickUp> {
                       Navigator.pop(context);
                     },
                     icon: const Icon(Icons.close)),
-                "Enter Pickup".text.xl2.bold.make(),
+                "Enter Pickup".text.xl.bold.make(),
               ],
             ).pOnly(bottom: 10),
             Column(children: [
-              TextFormField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.grey[100],
-                  border: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  errorBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
-                  hintText: 'Enter Pickup',
+              VxTwoRow(
+                left: Icon(
+                  Icons.location_on,
+                  color: Colors.green,
                 ),
-              ).cornerRadius(15),
+                right: Expanded(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey[100],
+                      border: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      errorBorder: InputBorder.none,
+                      disabledBorder: InputBorder.none,
+                      hintText: 'Enter Pickup',
+                    ),
+                  ).cornerRadius(10),
+                ),
+              ),
               const SizedBox(
                 height: 10,
               ),
-              TextFormField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.grey[100],
-                  border: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  errorBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
-                  hintText: 'Enter Pickup',
+              VxTwoRow(
+                left: Icon(
+                  Icons.location_on,
+                  color: Colors.green,
                 ),
-              ).cornerRadius(15),
+                right: Expanded(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey[100],
+                      border: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      errorBorder: InputBorder.none,
+                      disabledBorder: InputBorder.none,
+                      hintText: 'Enter Pickup',
+                    ),
+                  ).cornerRadius(10),
+                ),
+              ),
             ]).backgroundColor(Colors.white),
           ],
         ).p12(),

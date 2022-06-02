@@ -4,15 +4,15 @@ import 'package:material_segmented_control/material_segmented_control.dart';
 
 import 'package:virtual_courier/utils/routes.dart';
 
-class MaterialSegment extends StatefulWidget {
-  const MaterialSegment({Key? key}) : super(key: key);
+class SignUpMaterialSegment extends StatefulWidget {
+  const SignUpMaterialSegment({Key? key}) : super(key: key);
 
   @override
-  State<MaterialSegment> createState() => _MaterialSegmentState();
+  State<SignUpMaterialSegment> createState() => _SignUpMaterialSegmentState();
 }
 
-class _MaterialSegmentState extends State<MaterialSegment> {
-  int _currentSelection = 0;
+class _SignUpMaterialSegmentState extends State<SignUpMaterialSegment> {
+  int _currentSelection = 1;
 
   @override
   Widget build(BuildContext context) {

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:virtual_courier/pages/loginpage/materialsegmentcontrol.dart';
+import 'package:virtual_courier/pages/loginpage/signupmaterialsegmentcontrol.dart';
 import 'package:virtual_courier/utils/routes.dart';
 import 'package:virtual_courier/widgets/themes.dart';
 
@@ -26,7 +28,7 @@ class _SignUpState extends State<SignUp> {
             // ignore: prefer_const_literals_to_create_immutables
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // const MaterialSegment(),
+              SignUpMaterialSegment(),
               SizedBox(
                 height: 80,
               ),
@@ -37,7 +39,7 @@ class _SignUpState extends State<SignUp> {
                   .caption(context)
                   .make(),
               SizedBox(
-                height: 100,
+                height: 80,
               ),
               Row(
                 children: [
@@ -54,7 +56,6 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ],
               ),
-              
               SizedBox(
                 height: 10,
               ),
@@ -68,35 +69,35 @@ class _SignUpState extends State<SignUp> {
               ),
               "Seems good, we suggest to make it stronger".text.bold.xs.make(),
               SizedBox(height: 15),
-              VxTwoRow(
-                  left: Icon(
+              Row(
+                children: [
+                  Icon(
                     Icons.circle,
                     size: 12,
                     color: myColor,
                   ),
-                  right: "Contains at least one uppercase"
-                      .text
-                      .maxFontSize(12)
-                      .make()),
-              VxTwoRow(
-                  left: Icon(
+                  " Contains at least one number".text.maxFontSize(12).make(),
+                ],
+              ),
+              Row(
+                children: [
+                  Icon(
                     Icons.circle,
                     size: 12,
                     color: myColor,
                   ),
-                  right: "Contains at least one number"
-                      .text
-                      .maxFontSize(12)
-                      .make()),
-              VxTwoRow(
-                  left: Icon(
+                  " Contains at least one number".text.maxFontSize(12).make(),
+                ],
+              ),
+              Row(
+                children: [
+                  Icon(
                     Icons.circle,
                     size: 12,
                   ),
-                  right: "Contains at least one special character"
-                      .text
-                      .maxFontSize(12)
-                      .make()),
+                  " Contains at least one number".text.maxFontSize(12).make(),
+                ],
+              ),
               SizedBox(
                 height: 50,
               ),
@@ -122,7 +123,7 @@ class _SignUpState extends State<SignUp> {
       text: "Sign Up with Google",
       onPressed: () {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: const Text('Login In with Google pressed'),
+          content: const Text('Sign Up with Google pressed'),
           duration: const Duration(seconds: 1),
         ));
       },

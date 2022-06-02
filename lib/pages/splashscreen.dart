@@ -30,7 +30,10 @@ class _AfterSplashState extends State<AfterSplash> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(height: 140, width: 280, child: Placeholder()),
+          SizedBox(
+              height: 140,
+              width: 280,
+              child: Image.asset('assets/images/splashimage.png')),
           RichText(
             text: TextSpan(
               children: <TextSpan>[
