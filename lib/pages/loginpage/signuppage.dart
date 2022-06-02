@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:virtual_courier/pages/loginpage/materialsegmentcontrol.dart';
+
 import 'package:virtual_courier/pages/loginpage/signupmaterialsegmentcontrol.dart';
 import 'package:virtual_courier/utils/routes.dart';
 import 'package:virtual_courier/widgets/themes.dart';
