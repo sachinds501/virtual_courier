@@ -7,8 +7,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:virtual_courier/pages/map/.env.dart';
-import 'package:virtual_courier/pages/map/Pickup_panel/recentLocations.dart';
-import 'package:virtual_courier/pages/map/homemappage.dart';
+import 'package:virtual_courier/pages/map/Pickup_panel/recent_locations.dart';
 import 'package:virtual_courier/utils/routes.dart';
 
 class PanelPage extends StatefulWidget {

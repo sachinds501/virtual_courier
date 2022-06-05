@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:virtual_courier/pages/choosemedium.dart';
 import 'package:virtual_courier/pages/intro.dart';
-import 'package:virtual_courier/pages/map/Pickup_panel/panel.dart';
 import 'package:virtual_courier/pages/map/homemappage.dart';
 import 'package:virtual_courier/pages/loginpage/loginpage.dart';
 import 'package:virtual_courier/pages/loginpage/materialsegmentcontrol.dart';

@@ -24,6 +24,7 @@ class _RecentLocationsState extends State<RecentLocations> {
             ListTile(
               title: 'Home'.text.size(12).bold.make(),
               leading: const Icon(Icons.access_time),
+              onTap: () {},
               subtitle: "Kileleshwa, Likoni Lane, Nairobi, Kenya"
                   .text
                   .size(10)
