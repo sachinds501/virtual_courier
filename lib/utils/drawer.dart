@@ -3,7 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:virtual_courier/pages/whattosend.dart/drawer_pages/view_profile.dart';
+import 'package:virtual_courier/utils/routes.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -22,7 +22,9 @@ class MyDrawer extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 child: Center(
                   child: ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, MyRoutes.viewprofileroute);
+                    },
                     leading: CircleAvatar(
                       maxRadius: 28,
                       backgroundColor: Colors.transparent,
@@ -56,7 +58,7 @@ class MyDrawer extends StatelessWidget {
               title: 'Profile'.text.bold.make(),
               onTap: () {
                 // Update the state of the app.
-                // ...
+                Navigator.pushNamed(context, MyRoutes.viewprofileroute);
               },
             ),
             ListTile(
@@ -67,7 +69,7 @@ class MyDrawer extends StatelessWidget {
               title: 'Payment'.text.bold.make(),
               onTap: () {
                 // Update the state of the app.
-                // ...
+                Navigator.pushNamed(context, MyRoutes.paymentpageroute);
               },
             ),
             ListTile(
@@ -78,7 +80,7 @@ class MyDrawer extends StatelessWidget {
               title: 'Orders'.text.bold.make(),
               onTap: () {
                 // Update the state of the app.
-                // ...
+                Navigator.pushNamed(context, MyRoutes.orderpageroute);
               },
             ),
             ListTile(
@@ -89,7 +91,7 @@ class MyDrawer extends StatelessWidget {
               title: 'Promotions'.text.bold.make(),
               onTap: () {
                 // Update the state of the app.
-                // ...
+                Navigator.pushNamed(context, MyRoutes.promcodepageroute);
               },
             ),
             ListTile(
@@ -100,7 +102,7 @@ class MyDrawer extends StatelessWidget {
               title: 'Help'.text.bold.make(),
               onTap: () {
                 // Update the state of the app.
-                // ...
+                Navigator.pushNamed(context, MyRoutes.helppageroute);
               },
             ),
           ],

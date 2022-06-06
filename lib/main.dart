@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:virtual_courier/pages/choosemedium.dart';
+import 'package:virtual_courier/pages/drawer_pages/profile/edit_profile.dart';
 import 'package:virtual_courier/pages/intro.dart';
 import 'package:virtual_courier/pages/map/homemappage.dart';
 import 'package:virtual_courier/pages/loginpage/loginpage.dart';
 import 'package:virtual_courier/pages/loginpage/materialsegmentcontrol.dart';
 
 import 'package:virtual_courier/pages/loginpage/signuppage.dart';
+
+import 'package:virtual_courier/pages/drawer_pages/help.dart';
+import 'package:virtual_courier/pages/drawer_pages/order.dart';
+import 'package:virtual_courier/pages/drawer_pages/payment.dart';
+import 'package:virtual_courier/pages/drawer_pages/promocode.dart';
+import 'package:virtual_courier/pages/drawer_pages/view_profile.dart';
 import 'package:virtual_courier/pages/whattosend.dart/whatareyousending.dart';
 import 'package:virtual_courier/pages/splashscreen.dart';
 import 'package:virtual_courier/utils/routes.dart';
@@ -41,6 +48,12 @@ class MyApp extends StatelessWidget {
         // MyRoutes.panelroute: (context) => const PanelPage(),
         MyRoutes.whattosendroute: (context) => const WhatToSend(),
         MyRoutes.choosemediumroute: (context) => const ChooseMedium(),
+        MyRoutes.helppageroute: (context) => const Help(),
+        MyRoutes.orderpageroute: (context) => const OrderPage(),
+        MyRoutes.viewprofileroute: (context) => const ViewProfilePage(),
+        MyRoutes.editprofileroute: (context) => const EditProfilePage(),
+        MyRoutes.paymentpageroute: (context) => const PaymentPage(),
+        MyRoutes.promcodepageroute: (context) => const PromocodePage(),
       },
     );
   }
