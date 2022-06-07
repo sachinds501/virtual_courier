@@ -6,18 +6,17 @@ import 'package:virtual_courier/pages/intro.dart';
 import 'package:virtual_courier/pages/map/homemappage.dart';
 import 'package:virtual_courier/pages/loginpage/loginpage.dart';
 import 'package:virtual_courier/pages/loginpage/materialsegmentcontrol.dart';
-
 import 'package:virtual_courier/pages/loginpage/signuppage.dart';
-
 import 'package:virtual_courier/pages/drawer_pages/help.dart';
 import 'package:virtual_courier/pages/drawer_pages/order.dart';
 import 'package:virtual_courier/pages/drawer_pages/payment.dart';
 import 'package:virtual_courier/pages/drawer_pages/promocode.dart';
-import 'package:virtual_courier/pages/drawer_pages/view_profile.dart';
+import 'package:virtual_courier/pages/drawer_pages/profile/view_profile.dart';
 import 'package:virtual_courier/pages/whattosend.dart/whatareyousending.dart';
 import 'package:virtual_courier/pages/splashscreen.dart';
 import 'package:virtual_courier/utils/routes.dart';
 import 'package:virtual_courier/widgets/themes.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,6 +33,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en', ''), // English, no country code
+        Locale('es', ''), // Spanish, no country code
+      ],
       title: 'Flutter Demo',
       theme: MyTheme.lightTheme(context),
       debugShowCheckedModeBanner: false,
