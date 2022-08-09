@@ -28,8 +28,8 @@ class MyDrawer extends StatelessWidget {
                     leading: CircleAvatar(
                       maxRadius: 28,
                       backgroundColor: Colors.transparent,
-                      child: Image.network(
-                        'https://www.shareicon.net/data/2017/02/15/878685_user_512x512.png',
+                      child: Image.asset(
+                        'assets/images/user.png',
                         fit: BoxFit.fitWidth,
                       ),
                     ),

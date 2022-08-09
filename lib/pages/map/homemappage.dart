@@ -125,10 +125,9 @@ class _HomeMapPageState extends State<HomeMapPage> {
                 },
                 onLongPress: _addMarker,
               ),
-              if (_info != null)
-                Positioned(
-                  top: 00.0,
-                  child: Container(
+              Column(children: [
+                if (_info != null)
+                  Container(
                           width: MediaQuery.of(context).size.width * 0.9,
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -159,7 +158,6 @@ class _HomeMapPageState extends State<HomeMapPage> {
                                 ),
                               ),
                               Divider(
-                                thickness: 3.0,
                                 indent: 55,
                                 endIndent: 55,
                               ),
@@ -174,62 +172,61 @@ class _HomeMapPageState extends State<HomeMapPage> {
                             ],
                           ).p8())
                       .py8(),
-                ),
-              if (_info != null)
-                Positioned(
-                  top: 200,
-                  right: 300,
-                  child: FloatingActionButton.small(
-                    heroTag: "btn2",
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      FloatingActionButton.small(
+                          heroTag: "btn1",
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          backgroundColor: Colors.yellow[900],
+                          child: Icon(
+                            Icons.dashboard_rounded,
+                          ),
+                          onPressed: () {
+                            _scaffoldKey.currentState!.openDrawer();
+                          }),
+                      FloatingActionButton(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        heroTag: "btn3",
+                        backgroundColor: Colors.blue[900],
+                        onPressed: () {
+                          locatePosition();
+                        },
+                        child: const Icon(
+                          Icons.center_focus_strong,
+                          size: 30,
+                        ),
+                      ),
+                    ]).wFull(context).p16(),
+                if (_info != null)
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: FloatingActionButton.small(
+                      heroTag: "btn2",
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      backgroundColor: Colors.red[900],
+                      onPressed: () {
+                        () {
+                          setState(() {
+                            _origin = null;
+                            _destination = null;
+                            _info = null;
+                          });
+                        };
+                      },
+                      child: Icon(
+                        Icons.wrong_location,
+                      ),
                     ),
-                    backgroundColor: Colors.teal[600],
-                    onPressed: () {
-                      () {
-                        setState(() {
-                          _origin = null;
-                          _destination = null;
-                          _info = null;
-                        });
-                      };
-                    },
-                    child: Icon(
-                      Icons.restore,
-                    ),
-                  ),
-                ),
-              Positioned(
-                top: 150,
-                right: 200,
-                child: FloatingActionButton.small(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  heroTag: "btn3",
-                  backgroundColor: Colors.indigo[600],
-                  onPressed: () {
-                    locatePosition();
-                  },
-                  child: const Icon(Icons.center_focus_strong),
-                ).pOnly(right: 100),
-              ),
-              Positioned(
-                top: 100,
-                right: 300,
-                child: FloatingActionButton.small(
-                    heroTag: "btn1",
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    backgroundColor: Colors.deepOrange[600],
-                    child: Icon(
-                      Icons.dashboard_rounded,
-                    ),
-                    onPressed: () {
-                      _scaffoldKey.currentState!.openDrawer();
-                    }),
-              ),
+                  ).px16(),
+              ]),
               SlidingUpPanel(
                 backdropEnabled: true,
                 boxShadow: const [
