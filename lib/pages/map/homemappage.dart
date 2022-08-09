@@ -2,6 +2,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_google_places_hoc081098/flutter_google_places_hoc081098.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_api_headers/google_api_headers.dart';
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -25,22 +26,53 @@ class HomeMapPage extends StatefulWidget {
 }
 
 class _HomeMapPageState extends State<HomeMapPage> {
-  static const _initialCameraPosition = CameraPosition(
+  var _initialCameraPosition = CameraPosition(
     target: LatLng(21.632459289835975, 72.97962033809979),
     zoom: 16,
   );
 
   GoogleMapController? _googleMapController;
 
+  double bottomPaddingofMap = 0.0;
   Marker? _origin;
   Marker? _destination;
   Marker? _stop;
   Directions? _info;
+  // LocationData? currentLocation;s
   String location = "Enter Pickup";
   String destinationLocation = "Enter Destination";
   String stopLocation = "Enter Stop";
   bool _panelIsClosed = true;
   bool _expandStop = false;
+
+  Position? currentPosition;
+
+  var geoLocator = Geolocator();
+
+  void locatePosition() async {
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+    currentPosition = position;
+
+    LatLng latlangPosition = LatLng(position.latitude, position.longitude);
+
+    CameraPosition cameraPosition =
+        CameraPosition(target: latlangPosition, zoom: 19);
+    _googleMapController!
+        .animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
+
+    setState(() {
+      _initialCameraPosition = cameraPosition;
+      _googleMapController!.animateCamera(
+          CameraUpdate.newCameraPosition(_initialCameraPosition));
+    });
+  }
+
+  @override
+  void initState() {
+    // getCurrentLocation();
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -60,13 +92,21 @@ class _HomeMapPageState extends State<HomeMapPage> {
             alignment: Alignment.center,
             children: [
               GoogleMap(
-                myLocationButtonEnabled: false,
+                padding: EdgeInsets.symmetric(vertical: bottomPaddingofMap),
+                myLocationButtonEnabled: true,
                 zoomControlsEnabled: true,
-                // trafficEnabled: true,
+                zoomGesturesEnabled: true,
+                myLocationEnabled: true,
                 compassEnabled: true,
-                // mapType: MapType.satellite,
                 initialCameraPosition: _initialCameraPosition,
-                onMapCreated: (controller) => _googleMapController = controller,
+                onMapCreated: (controller) {
+                  _googleMapController = controller;
+                  locatePosition();
+
+                  setState(() {
+                    bottomPaddingofMap = 300;
+                  });
+                },
                 markers: {
                   if (_origin != null) _origin!,
                   if (_destination != null) _destination!,
@@ -89,55 +129,55 @@ class _HomeMapPageState extends State<HomeMapPage> {
                 Positioned(
                   top: 00.0,
                   child: Container(
-                    height: 80,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      color: Colors.blue[600],
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(40),
-                        bottomRight: Radius.circular(40),
-                      ),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Colors.black26,
-                          offset: Offset(0, 2),
-                          blurRadius: 6.0,
-                        )
-                      ],
-                    ),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          'Distance: ${_info!.totalDistance}',
-                          style: const TextStyle(
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          decoration: BoxDecoration(
                             color: Colors.white,
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.w600,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(12),
+                            ),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Colors.black26,
+                                offset: Offset(0, 2),
+                                blurRadius: 6.0,
+                              )
+                            ],
                           ),
-                        ),
-                        Divider(
-                          thickness: 3.0,
-                          indent: 55,
-                          endIndent: 55,
-                        ),
-                        Text(
-                          'Time: ${_info!.totalDuration}',
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ],
-                    ).centered(),
-                  ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            // crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                'Distance left: ${_info!.totalDistance} ',
+                                style: const TextStyle(
+                                  color: Colors.teal,
+                                  fontSize: 24.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              Divider(
+                                thickness: 3.0,
+                                indent: 55,
+                                endIndent: 55,
+                              ),
+                              Text(
+                                'Time left: ${_info!.totalDuration}',
+                                style: const TextStyle(
+                                  color: Colors.black87,
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ).p8())
+                      .py8(),
                 ),
               if (_info != null)
                 Positioned(
-                  top: 180,
+                  top: 200,
                   right: 300,
                   child: FloatingActionButton.small(
                     heroTag: "btn2",
@@ -146,7 +186,13 @@ class _HomeMapPageState extends State<HomeMapPage> {
                     ),
                     backgroundColor: Colors.teal[600],
                     onPressed: () {
-                      () {};
+                      () {
+                        setState(() {
+                          _origin = null;
+                          _destination = null;
+                          _info = null;
+                        });
+                      };
                     },
                     child: Icon(
                       Icons.restore,
@@ -154,7 +200,7 @@ class _HomeMapPageState extends State<HomeMapPage> {
                   ),
                 ),
               Positioned(
-                top: 130,
+                top: 150,
                 right: 200,
                 child: FloatingActionButton.small(
                   shape: RoundedRectangleBorder(
@@ -162,17 +208,14 @@ class _HomeMapPageState extends State<HomeMapPage> {
                   ),
                   heroTag: "btn3",
                   backgroundColor: Colors.indigo[600],
-                  onPressed: () => _googleMapController?.animateCamera(
-                    _info != null
-                        ? CameraUpdate.newLatLngBounds(_info!.bounds, 100.0)
-                        : CameraUpdate.newCameraPosition(
-                            _initialCameraPosition),
-                  ),
+                  onPressed: () {
+                    locatePosition();
+                  },
                   child: const Icon(Icons.center_focus_strong),
                 ).pOnly(right: 100),
               ),
               Positioned(
-                top: 80,
+                top: 100,
                 right: 300,
                 child: FloatingActionButton.small(
                     heroTag: "btn1",
@@ -258,7 +301,7 @@ class _HomeMapPageState extends State<HomeMapPage> {
                                 CameraUpdate.newCameraPosition(
                                   CameraPosition(
                                     target: _origin!.position,
-                                    zoom: 10,
+                                    zoom: 17,
                                     tilt: 50.0,
                                   ),
                                 ),
@@ -277,7 +320,7 @@ class _HomeMapPageState extends State<HomeMapPage> {
                                 CameraUpdate.newCameraPosition(
                                   CameraPosition(
                                     target: _destination!.position,
-                                    zoom: 10,
+                                    zoom: 17,
                                     tilt: 50.0,
                                   ),
                                 ),
@@ -296,7 +339,7 @@ class _HomeMapPageState extends State<HomeMapPage> {
                                 CameraUpdate.newCameraPosition(
                                   CameraPosition(
                                     target: _stop!.position,
-                                    zoom: 10,
+                                    zoom: 17,
                                     tilt: 50.0,
                                   ),
                                 ),
