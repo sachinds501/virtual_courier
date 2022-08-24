@@ -7,6 +7,7 @@ import 'package:google_api_headers/google_api_headers.dart';
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_webservice/places.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -68,9 +69,26 @@ class _HomeMapPageState extends State<HomeMapPage> {
     });
   }
 
+  Future<void> getPermission() async {
+    if (await Permission.location.serviceStatus.isEnabled) {
+    } else {
+      var status = await Permission.location.status;
+      if (status.isGranted) {
+      } else if (status.isDenied) {
+        Map<Permission, PermissionStatus> status = await [
+          Permission.location,
+        ].request();
+      }
+      if (Permission.location.isPermanentlyDenied == true) {
+        openAppSettings();
+      }
+    }
+  }
+
   @override
   void initState() {
     // getCurrentLocation();
+    getPermission();
     super.initState();
   }
 

@@ -58,6 +58,7 @@ dependencies:
   flutter_gen: ^4.2.1
   flutter_svg: ^1.1.1+1
   geolocator: ^9.0.1
+  permission_handler: ^10.0.0
 
 location: ^4.4.0
 
