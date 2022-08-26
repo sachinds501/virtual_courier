@@ -54,7 +54,7 @@ class _WhatToSendState extends State<WhatToSend> {
                               enabledBorder: InputBorder.none,
                               errorBorder: InputBorder.none,
                               disabledBorder: InputBorder.none,
-                              hintText: '100 Ksh',
+                              hintText: '100 Rs.',
                             ),
                           ).cornerRadius(15),
                           const Spacer(),

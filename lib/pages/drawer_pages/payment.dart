@@ -49,8 +49,9 @@ class _PaymentPageState extends State<PaymentPage> {
                             },
                             child: Card(
                               elevation: 3,
-                              color:
-                                  selectedIndex == index ? Colors.yellow : null,
+                              color: selectedIndex == index
+                                  ? Theme.of(context).colorScheme.secondary
+                                  : null,
                               child: payment_method[index]
                                   .text
                                   .gray400

@@ -25,21 +25,19 @@ class _RecentLocationsState extends State<RecentLocations> {
               title: 'Home'.text.size(12).bold.make(),
               leading: const Icon(Icons.access_time),
               onTap: () {},
-              subtitle: "Kileleshwa, Likoni Lane, Nairobi, Kenya"
-                  .text
-                  .size(10)
-                  .make(),
+              subtitle:
+                  "VaniyaVaad, Nadiad, Gujarat, India".text.size(10).make(),
             ),
             ListTile(
               title: 'Work'.text.size(12).bold.make(),
               leading: const Icon(Icons.access_time),
-              subtitle: "Kileleshwa, Likoni Lane, Nairobi, Kenya"
+              subtitle: "Science City, Ahmedabad, Gujarat, India"
                   .text
                   .size(10)
                   .make(),
             ),
             ListTile(
-              title: 'Kileleshwa'.text.size(12).bold.make(),
+              title: 'Cafe'.text.size(12).bold.make(),
               leading: const Icon(Icons.access_time),
             ),
             ListTile(
@@ -53,13 +51,11 @@ class _RecentLocationsState extends State<RecentLocations> {
             ListTile(
               title: 'Home'.text.size(12).bold.make(),
               leading: const Icon(Icons.access_time),
-              subtitle: "Kileleshwa, Likoni Lane, Nairobi, Kenya"
-                  .text
-                  .size(10)
-                  .make(),
+              subtitle:
+                  "Motera, Ahmedabad, Gujarat, India".text.size(10).make(),
             ),
             ListTile(
-              title: 'Kileleshwa'.text.size(12).bold.make(),
+              title: 'Mahatma Gandhi Play Ground'.text.size(12).bold.make(),
               leading: const Icon(Icons.access_time),
             ),
           ],

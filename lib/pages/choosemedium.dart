@@ -114,8 +114,8 @@ class _ChooseMediumState extends State<ChooseMedium> {
             trailing: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                'Ksh 150'.text.bold.size(13).make(),
-                "Ksh 180".text.lineThrough.caption(context).make()
+                'Rs. 150'.text.bold.size(13).make(),
+                "Rs. 180".text.lineThrough.caption(context).make()
               ],
             ),
           ),
@@ -129,8 +129,8 @@ class _ChooseMediumState extends State<ChooseMedium> {
             trailing: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                'Ksh 250'.text.bold.size(13).make(),
-                "Ksh 300".text.lineThrough.caption(context).make()
+                'Rs. 250'.text.bold.size(13).make(),
+                "Rs. 300".text.lineThrough.caption(context).make()
               ],
             ),
           ),
@@ -144,8 +144,8 @@ class _ChooseMediumState extends State<ChooseMedium> {
             trailing: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                'Ksh 150'.text.bold.size(13).make(),
-                "Ksh 250".text.lineThrough.caption(context).make()
+                'Rs. 150'.text.bold.size(13).make(),
+                "Rs. 250".text.lineThrough.caption(context).make()
               ],
             ),
           )
