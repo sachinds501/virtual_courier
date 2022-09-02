@@ -1,4 +1,4 @@
-// ignore_for_file: library_private_types_in_public_api, prefer_const_constructors, unnecessary_null_comparison, avoid_print, unrelated_type_equality_checks
+// ignore_for_file: library_private_types_in_public_api, prefer_const_constructors, unnecessary_null_comparison, avoid_print, unrelated_type_equality_checks, unused_local_variable
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_google_places_hoc081098/flutter_google_places_hoc081098.dart';
@@ -39,7 +39,6 @@ class _HomeMapPageState extends State<HomeMapPage> {
   Marker? _destination;
   Marker? _stop;
   Directions? _info;
-  // LocationData? currentLocation;s
   String location = "Enter Pickup";
   String destinationLocation = "Enter Destination";
   String stopLocation = "Enter Stop";

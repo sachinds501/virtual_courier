@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: MyTheme.lightTheme(context),
       debugShowCheckedModeBanner: false,
-      initialRoute: MyRoutes.splashscreenRoute,
+      initialRoute: MyRoutes.homemappageroute,
       routes: {
         MyRoutes.loginRoute: (context) => const LoginPage(),
         MyRoutes.splashscreenRoute: (context) => const AfterSplash(),
