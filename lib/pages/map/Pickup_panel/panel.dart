@@ -8,7 +8,9 @@ import 'package:google_maps_webservice/places.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:virtual_courier/pages/map/.env.dart';
 import 'package:virtual_courier/pages/map/Pickup_panel/recent_locations.dart';
-import 'package:virtual_courier/utils/routes.dart';
+import 'package:virtual_courier/pages/whattosend.dart/whatareyousending.dart'; 
+
+import '../../../widgets/other_widgets.dart';
 
 class PanelPage extends StatefulWidget {
   const PanelPage({Key? key}) : super(key: key);
@@ -169,7 +171,7 @@ class _PanelPageState extends State<PanelPage> {
               RecentLocations(),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, MyRoutes.whattosendroute);
+                  Navigator.push(context, SizeTransition5(const WhatToSend()));
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                     content: const Text('Done Button Pressed'),
                     duration: const Duration(seconds: 1),

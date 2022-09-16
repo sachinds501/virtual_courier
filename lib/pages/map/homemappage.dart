@@ -13,9 +13,10 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:virtual_courier/pages/map/.env.dart';
 import 'package:virtual_courier/pages/map/directions_model.dart';
+import 'package:virtual_courier/pages/whattosend.dart/whatareyousending.dart';
 import 'package:virtual_courier/utils/drawer.dart';
 
-import '../../utils/routes.dart';
+import '../../widgets/other_widgets.dart';
 import 'Pickup_panel/recent_locations.dart';
 import 'directions_repository.dart';
 
@@ -205,20 +206,6 @@ class _HomeMapPageState extends State<HomeMapPage> {
                           onPressed: () {
                             _scaffoldKey.currentState!.openDrawer();
                           }),
-                      FloatingActionButton(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        heroTag: "btn3",
-                        backgroundColor: Colors.blue[900],
-                        onPressed: () {
-                          locatePosition();
-                        },
-                        child: const Icon(
-                          Icons.center_focus_strong,
-                          size: 30,
-                        ),
-                      ),
                     ]).wFull(context).p16(),
                 if (_info != null)
                   Container(
@@ -321,7 +308,7 @@ class _HomeMapPageState extends State<HomeMapPage> {
                                 ),
                               ),
                               style: TextButton.styleFrom(
-                                primary: Colors.red,
+                                backgroundColor: Colors.red,
                                 textStyle: const TextStyle(
                                     fontWeight: FontWeight.w600),
                               ),
@@ -340,7 +327,7 @@ class _HomeMapPageState extends State<HomeMapPage> {
                                 ),
                               ),
                               style: TextButton.styleFrom(
-                                primary: Colors.purple,
+                                backgroundColor: Colors.purple,
                                 textStyle: const TextStyle(
                                     fontWeight: FontWeight.w600),
                               ),
@@ -359,7 +346,7 @@ class _HomeMapPageState extends State<HomeMapPage> {
                                 ),
                               ),
                               style: TextButton.styleFrom(
-                                primary: Colors.blue,
+                                backgroundColor: Colors.blue,
                                 textStyle: const TextStyle(
                                     fontWeight: FontWeight.w600),
                               ),
@@ -605,8 +592,8 @@ class _HomeMapPageState extends State<HomeMapPage> {
                             Spacer(),
                             ElevatedButton(
                               onPressed: () {
-                                Navigator.pushNamed(
-                                    context, MyRoutes.whattosendroute);
+                                Navigator.push(context,
+                                    SizeTransition5(const WhatToSend()));
                                 ScaffoldMessenger.of(context)
                                     .showSnackBar(SnackBar(
                                   content:
@@ -628,6 +615,7 @@ class _HomeMapPageState extends State<HomeMapPage> {
                           ],
                         ),
                       ),
+                      // SlidingUpPanel()
                     ],
                   ).pSymmetric(v: 32, h: 16),
                 ),

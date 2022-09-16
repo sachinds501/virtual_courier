@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:virtual_courier/widgets/appbar.dart';
 
-import '../../utils/routes.dart';
-
 class PromocodePage extends StatefulWidget {
   const PromocodePage({Key? key}) : super(key: key);
 
@@ -13,13 +11,14 @@ class PromocodePage extends StatefulWidget {
 
 class _PromocodePageState extends State<PromocodePage> {
   bool isPromocodeApplied = false;
-  TextEditingController _promocodeController = TextEditingController();
+  // TextEditingController _promocodeController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar(context, 'Promotions'),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextFormField(
             textAlign: TextAlign.center,
@@ -55,9 +54,34 @@ class _PromocodePageState extends State<PromocodePage> {
                   : 'not valid email';
             },
           ),
-          const HeightBox(30),
+          const HeightBox(10),
           const Text(
               'Enter the code and it will be applied to your next order'),
+          const HeightBox(10),
+          const Divider(
+            thickness: 4,
+          ),
+          "Your Promotions".text.bold.make(),
+          const HeightBox(10),
+          ListView.builder(
+            itemCount: 15,
+            itemBuilder: ((context, index) => Container(
+                    color: Colors.grey[200],
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        "25% discount for 10 orders".text.bold.make(),
+                        "maximum discount Rs. 500".text.caption(context).make(),
+                        const Divider(
+                          thickness: 2,
+                        ),
+                        "10 left".text.make()
+                      ],
+                    ).p8())
+                .cornerRadius(10)
+                .py8()),
+          ).hHalf(context),
           const Spacer(),
           ElevatedButton(
             onPressed: () {

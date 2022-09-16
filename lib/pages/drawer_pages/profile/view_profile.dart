@@ -5,7 +5,7 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:virtual_courier/pages/drawer_pages/profile/changelanguage.dart';
 import 'package:virtual_courier/pages/drawer_pages/profile/changepassword.dart';
 import 'package:virtual_courier/pages/loginpage/loginpage.dart';
-
+import '../../../widgets/other_widgets.dart';
 import 'edit_profile.dart';
 
 class ViewProfilePage extends StatefulWidget {
@@ -42,17 +42,17 @@ class _ViewProfilePageState extends State<ViewProfilePage> {
                         borderRadius: BorderRadius.all(Radius.circular(15.0))),
                     onSelected: (result) {
                       if (result == 1) {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => EditProfilePage()));
+                        Navigator.push(
+                            context, SizeTransition5(const EditProfilePage()));
                       } else if (result == 2) {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => Password()));
+                        Navigator.push(
+                            context, SizeTransition5(const Password()));
                       } else if (result == 3) {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => ChangeLanguage()));
+                        Navigator.push(
+                            context, SizeTransition5(const ChangeLanguage()));
                       } else {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => LoginPage()));
+                        Navigator.push(
+                            context, SizeTransition5(const LoginPage()));
                       }
                     },
                     itemBuilder: (BuildContext context) => [

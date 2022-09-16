@@ -11,9 +11,6 @@ class Help extends StatefulWidget {
 class _HelpState extends State<Help> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Center(
-      child: "Help".text.xl3.make(),
-    ));
+    return Scaffold(body: SafeArea(child: "Contact Us:".text.xl2.bold.make()));
   }
 }

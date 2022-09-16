@@ -20,7 +20,6 @@ class _SendingItemState extends State<SendingItem> {
     return ListView(
       // This next line does the trick.
       scrollDirection: Axis.horizontal,
-
       children: <Widget>[
         Expanded(
           child: Center(

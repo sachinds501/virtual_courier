@@ -1,12 +1,17 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, must_be_immutable
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:virtual_courier/pages/drawer_pages/help.dart';
+import 'package:virtual_courier/pages/drawer_pages/order.dart';
+import 'package:virtual_courier/pages/drawer_pages/payment.dart';
+import 'package:virtual_courier/pages/drawer_pages/profile/view_profile.dart';
+import 'package:virtual_courier/pages/drawer_pages/promocode.dart';
 import 'package:virtual_courier/utils/routes.dart';
 
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({Key? key}) : super(key: key);
+  MyDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +38,7 @@ class MyDrawer extends StatelessWidget {
                         fit: BoxFit.fitWidth,
                       ),
                     ),
-                    title: 'Edward Mwongera'.text.size(10).extraBold.make(),
+                    title: 'Edward Mwongera'.text.size(16).bold.make(),
                     subtitle: 'View Profile'
                         .text
                         .size(12)
@@ -50,64 +55,55 @@ class MyDrawer extends StatelessWidget {
               thickness: 1,
               color: Colors.black,
             ),
-            ListTile(
-              leading: const Icon(
-                Icons.person_outline_rounded,
-                color: Colors.black,
-              ),
-              title: 'Profile'.text.bold.make(),
-              onTap: () {
-                // Update the state of the app.
-                Navigator.pushNamed(context, MyRoutes.viewprofileroute);
-              },
-            ),
-            ListTile(
-              leading: const Icon(
-                CupertinoIcons.creditcard,
-                color: Colors.black,
-              ),
-              title: 'Payment'.text.bold.make(),
-              onTap: () {
-                // Update the state of the app.
-                Navigator.pushNamed(context, MyRoutes.paymentpageroute);
-              },
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.pages_outlined,
-                color: Colors.black,
-              ),
-              title: 'Orders'.text.bold.make(),
-              onTap: () {
-                // Update the state of the app.
-                Navigator.pushNamed(context, MyRoutes.orderpageroute);
-              },
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.discount_outlined,
-                color: Colors.black,
-              ),
-              title: 'Promotions'.text.bold.make(),
-              onTap: () {
-                // Update the state of the app.
-                Navigator.pushNamed(context, MyRoutes.promcodepageroute);
-              },
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.help_outline,
-                color: Colors.black,
-              ),
-              title: 'Help'.text.bold.make(),
-              onTap: () {
-                // Update the state of the app.
-                Navigator.pushNamed(context, MyRoutes.helppageroute);
-              },
-            ),
+            ListView.builder(
+                itemCount: 5,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    leading: icons[index],
+                    title: strings[index].text.xl.make(),
+                    onTap: () {
+                      // Update the state of the app.
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => routes[index]));
+                    },
+                  );
+                }).h(500),
           ],
         ),
       ),
     );
   }
+
+  List<Icon> icons = [
+    Icon(
+      Icons.person_outline_rounded,
+      color: Colors.black,
+    ),
+    Icon(
+      CupertinoIcons.creditcard,
+      color: Colors.black,
+    ),
+    Icon(
+      Icons.pages_outlined,
+      color: Colors.black,
+    ),
+    Icon(
+      Icons.discount_outlined,
+      color: Colors.black,
+    ),
+    Icon(
+      Icons.help_outline,
+      color: Colors.black,
+    ),
+  ];
+  List<String> strings = ['Profile', 'Payment', 'Orders', 'Promotions', 'Help'];
+  List<Widget> routes = [
+    ViewProfilePage(),
+    PaymentPage(),
+    OrderPage(),
+    PromocodePage(),
+    Help()
+  ];
 }

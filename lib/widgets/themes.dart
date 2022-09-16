@@ -7,6 +7,11 @@ class MyTheme {
       fontFamily: GoogleFonts.montserrat().fontFamily,
       cardColor: Colors.white,
       canvasColor: Colors.white,
+      textTheme: const TextTheme(
+        bodyText1: TextStyle(fontSize: 12.0, fontFamily: 'montserrat'),
+        bodyText2: TextStyle(
+            fontSize: 14.0, fontFamily: 'Hind', fontWeight: FontWeight.bold),
+      ),
       appBarTheme: AppBarTheme(
         color: Colors.white,
         elevation: 0.0,
@@ -14,7 +19,11 @@ class MyTheme {
         toolbarTextStyle: const TextTheme(
           headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
           headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
-          bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+          bodyText1: TextStyle(fontSize: 12.0, fontFamily: 'montserrat'),
+          bodyText2: TextStyle(
+              fontSize: 12.0,
+              fontFamily: 'montserrat',
+              fontWeight: FontWeight.bold),
         ).bodyText2,
         titleTextStyle: const TextTheme(
           headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),

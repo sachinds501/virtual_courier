@@ -6,8 +6,10 @@ import 'package:flutter_signin_button/button_view.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import 'package:virtual_courier/pages/loginpage/signupmaterialsegmentcontrol.dart';
-import 'package:virtual_courier/utils/routes.dart';
+import 'package:virtual_courier/pages/map/homemappage.dart';
 import 'package:virtual_courier/widgets/themes.dart';
+
+import '../../widgets/other_widgets.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -137,7 +139,7 @@ class _SignUpState extends State<SignUp> {
           content: const Text('Login Button Pressed'),
           duration: const Duration(seconds: 1),
         ));
-        Navigator.pushNamed(context, MyRoutes.homemappageroute);
+        Navigator.push(context, SizeTransition5(const HomeMapPage()));
       },
       style: ButtonStyle(
           backgroundColor:

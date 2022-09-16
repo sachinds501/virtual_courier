@@ -1,8 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:material_segmented_control/material_segmented_control.dart';
-
-import 'package:virtual_courier/utils/routes.dart';
+import 'package:virtual_courier/pages/loginpage/loginpage.dart';
+import 'package:virtual_courier/pages/loginpage/signuppage.dart';
+import 'package:virtual_courier/widgets/other_widgets.dart';
 
 class MaterialSegment extends StatefulWidget {
   const MaterialSegment({Key? key}) : super(key: key);
@@ -29,10 +30,10 @@ class _MaterialSegmentState extends State<MaterialSegment> {
           borderRadius: 32.0,
           onSegmentChosen: (int index) {
             if (index == 1) {
-              Navigator.pushNamed(context, MyRoutes.signupRoute);
+              Navigator.push(context, SizeTransition5(const SignUp()));
             }
             if (index == 0) {
-              Navigator.pushNamed(context, MyRoutes.loginRoute);
+              Navigator.push(context, SizeTransition5(const LoginPage()));
             }
             setState(() {
               _currentSelection = index;
