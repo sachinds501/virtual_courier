@@ -15,8 +15,8 @@ import 'package:virtual_courier/pages/drawer_pages/profile/view_profile.dart';
 import 'package:virtual_courier/pages/whattosend.dart/whatareyousending.dart';
 import 'package:virtual_courier/pages/splashscreen.dart';
 import 'package:virtual_courier/utils/routes.dart';
-import 'package:virtual_courier/widgets/themes.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:virtual_courier/widgets/themes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
