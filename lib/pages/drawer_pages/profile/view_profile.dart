@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last, sized_box_for_whitespace
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:virtual_courier/pages/drawer_pages/profile/changelanguage.dart';
@@ -51,8 +52,7 @@ class _ViewProfilePageState extends State<ViewProfilePage> {
                         Navigator.push(
                             context, SizeTransition5(const ChangeLanguage()));
                       } else {
-                        Navigator.push(
-                            context, SizeTransition5(const LoginPage()));
+                        _signOut;
                       }
                     },
                     itemBuilder: (BuildContext context) => [
@@ -90,52 +90,57 @@ class _ViewProfilePageState extends State<ViewProfilePage> {
           ],
         ),
         body: SafeArea(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 25,
-                ),
-                SizedBox(
-                  height: 100,
-                  child: ClipOval(
-                    child: Image.network(
-                      'https://www.shareicon.net/data/2017/02/15/878685_user_512x512.png',
-                      fit: BoxFit.fitWidth,
-                    ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 25,
+              ),
+              SizedBox(
+                height: 100,
+                child: ClipOval(
+                  child: Image.network(
+                    'https://www.shareicon.net/data/2017/02/15/878685_user_512x512.png',
+                    fit: BoxFit.fitWidth,
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                Divider(
-                  thickness: 2,
-                ),
-                ListTile(
-                  title: 'Name'.text.bold.make(),
-                  subtitle: 'Edward Mwongera'.text.make(),
-                ),
-                Divider(
-                  thickness: 2,
-                ),
-                ListTile(
-                  title: 'Email Address'.text.bold.make(),
-                  subtitle: 'edward@gmail.com'.text.make(),
-                ),
-                Divider(
-                  thickness: 2,
-                ),
-                ListTile(
-                  title: 'Phone Number'.text.bold.make(),
-                  subtitle: '0725 5654 5653'.text.make(),
-                ),
-                Divider(
-                  thickness: 2,
-                ),
-              ],
-            ).p12(),
-          ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Divider(
+                thickness: 2,
+              ),
+              ListTile(
+                title: 'Name'.text.bold.make(),
+                subtitle: 'Edward Mwongera'.text.make(),
+              ),
+              Divider(
+                thickness: 2,
+              ),
+              ListTile(
+                title: 'Email Address'.text.bold.make(),
+                subtitle: 'edward@gmail.com'.text.make(),
+              ),
+              Divider(
+                thickness: 2,
+              ),
+              ListTile(
+                title: 'Phone Number'.text.bold.make(),
+                subtitle: '0725 5654 5653'.text.make(),
+              ),
+              Divider(
+                thickness: 2,
+              ),
+            ],
+          ).p12(),
         ));
+  }
+
+  void _signOut() async {
+    await FirebaseAuth.instance.signOut();
+    runApp(MaterialApp(
+      home: LoginPage(),
+    ));
   }
 }

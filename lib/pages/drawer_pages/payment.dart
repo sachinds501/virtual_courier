@@ -10,7 +10,6 @@ class PaymentPage extends StatefulWidget {
   @override
   State<PaymentPage> createState() => _PaymentPageState();
 }
-
 class _PaymentPageState extends State<PaymentPage> {
   List<String> payment_method = ['Bank Card', 'Cash on Dilevery', 'UPI'];
   int? selectedIndex;
@@ -120,7 +119,7 @@ class _PaymentPageState extends State<PaymentPage> {
                             ? null
                             : 'not valid email';
                       },
-                    ),
+                    ), 
                     const HeightBox(20),
                     Row(
                       children: [

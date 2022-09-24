@@ -1,10 +1,15 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:virtual_courier/pages/loginpage/materialsegmentcontrol.dart';
+
+import '../../widgets/other_widgets.dart';
+import '../map/homemappage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -118,11 +123,13 @@ class _LoginPageState extends State<LoginPage> {
                 SignInButton(
                   Buttons.Google,
                   text: "Login In with Google",
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: const Text('Login In with Google pressed'),
-                      duration: const Duration(seconds: 1),
-                    ));
+                  onPressed: () async {
+                    // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    //   content: const Text('Login In with Google pressed'),
+                    //   duration: const Duration(seconds: 1),
+                    // ));
+                    await signInWithGoogle();
+                    setState(() {});
                   },
                 ).wh(MediaQuery.of(context).size.width, 50),
                 SizedBox(
@@ -143,4 +150,25 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       );
+
+  Future<UserCredential> signInWithGoogle() async {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    // navigate to homescreen
+    Navigator.of(context).push(SizeTransition5(HomeMapPage()));
+
+    // Once signed in, return the UserCredential
+    return await FirebaseAuth.instance.signInWithCredential(credential);
+  }
 }
