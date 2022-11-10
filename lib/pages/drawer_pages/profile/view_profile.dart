@@ -52,7 +52,10 @@ class _ViewProfilePageState extends State<ViewProfilePage> {
                         Navigator.push(
                             context, SizeTransition5(const ChangeLanguage()));
                       } else {
-                        _signOut;
+                        FirebaseAuth.instance.signOut();
+                        runApp(MaterialApp(
+                          home: LoginPage(),
+                        ));
                       }
                     },
                     itemBuilder: (BuildContext context) => [
@@ -113,21 +116,35 @@ class _ViewProfilePageState extends State<ViewProfilePage> {
               ),
               ListTile(
                 title: 'Name'.text.bold.make(),
-                subtitle: 'Edward Mwongera'.text.make(),
+                subtitle: FirebaseAuth.instance.currentUser != null
+                    ? FirebaseAuth.instance.currentUser!.displayName
+                        .toString()
+                        .text
+                        .size(14)
+                        .bold
+                        .make()
+                    : "Krishna".text.size(14).bold.make(),
               ),
               Divider(
                 thickness: 2,
               ),
               ListTile(
                 title: 'Email Address'.text.bold.make(),
-                subtitle: 'edward@gmail.com'.text.make(),
+                subtitle: FirebaseAuth.instance.currentUser != null
+                    ? FirebaseAuth.instance.currentUser!.email
+                        .toString()
+                        .text
+                        .size(14)
+                        .bold
+                        .make()
+                    : "Krishna".text.size(14).bold.make(),
               ),
               Divider(
                 thickness: 2,
               ),
               ListTile(
                 title: 'Phone Number'.text.bold.make(),
-                subtitle: '0725 5654 5653'.text.make(),
+                subtitle: '0725 5654 5653'.text.size(14).make(),
               ),
               Divider(
                 thickness: 2,
@@ -137,10 +154,11 @@ class _ViewProfilePageState extends State<ViewProfilePage> {
         ));
   }
 
-  void _signOut() async {
-    await FirebaseAuth.instance.signOut();
-    runApp(MaterialApp(
-      home: LoginPage(),
-    ));
-  }
+  // void _signOut() async {
+  //   await FirebaseAuth.instance.signOut();
+
+  //   runApp(MaterialApp(
+  //     home: LoginPage(),
+  //   ));
+  // }
 }

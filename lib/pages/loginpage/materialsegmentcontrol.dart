@@ -21,25 +21,24 @@ class _MaterialSegmentState extends State<MaterialSegment> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         MaterialSegmentedControl(
-          borderColor: Colors.transparent,
-          children: _children,
-          selectionIndex: _currentSelection,
-          selectedColor: Theme.of(context).colorScheme.secondary,
-          unselectedColor: const Color.fromARGB(85, 255, 213, 33),
-          horizontalPadding: EdgeInsets.zero,
-          borderRadius: 32.0,
-          onSegmentChosen: (int index) {
-            if (index == 1) {
-              Navigator.push(context, SizeTransition5(const SignUp()));
-            }
-            if (index == 0) {
-              Navigator.push(context, SizeTransition5(const LoginPage()));
-            }
-            setState(() {
-              _currentSelection = index;
-            });
-          },
-        ),
+            borderColor: Colors.transparent,
+            children: _children,
+            selectionIndex: _currentSelection,
+            selectedColor: Theme.of(context).colorScheme.secondary,
+            unselectedColor: const Color.fromARGB(85, 255, 213, 33),
+            horizontalPadding: EdgeInsets.zero,
+            borderRadius: 32.0,
+            onSegmentChosen: (int index) {
+              if (index == 1) {
+                Navigator.push(context, SizeTransition5(const SignUp()));
+              }
+              if (index == 0) {
+                Navigator.push(context, SizeTransition5(const LoginPage()));
+              }
+              setState(() {
+                _currentSelection = index;
+              });
+            }),
       ],
     );
   }

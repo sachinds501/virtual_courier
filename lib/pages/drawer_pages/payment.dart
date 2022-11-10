@@ -10,9 +10,10 @@ class PaymentPage extends StatefulWidget {
   @override
   State<PaymentPage> createState() => _PaymentPageState();
 }
+
 class _PaymentPageState extends State<PaymentPage> {
   List<String> payment_method = ['Bank Card', 'Cash on Dilevery', 'UPI'];
-  int? selectedIndex;
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -63,130 +64,136 @@ class _PaymentPageState extends State<PaymentPage> {
                             ).wOneForth(context).py16().cornerRadius(20),
                           ),
                         )),
-                    'PAYMENT DETAILS'.text.bold.make(),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.all(8),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey.shade400),
+                    if (selectedIndex == 0) ...{
+                      'PAYMENT DETAILS'.text.bold.make(),
+                      TextFormField(
+                        decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.all(8),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey.shade400),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.secondary,
+                                width: 5),
+                          ),
+                          border: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey.shade400),
+                          ),
+                          labelText: "Card holder's name",
+                          labelStyle: TextStyle(color: Colors.grey[400]),
                         ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Theme.of(context).colorScheme.secondary,
-                              width: 5),
-                        ),
-                        border: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey.shade400),
-                        ),
-                        labelText: "Card holder's name",
-                        labelStyle: TextStyle(color: Colors.grey[400]),
+                        onSaved: (String? value) {
+                          // This optional block of code can be used to run
+                          // code when the user saves the form.
+                        },
+                        validator: (String? value) {
+                          return (value != null && value.contains('@'))
+                              ? null
+                              : 'not valid email';
+                        },
                       ),
-                      onSaved: (String? value) {
-                        // This optional block of code can be used to run
-                        // code when the user saves the form.
-                      },
-                      validator: (String? value) {
-                        return (value != null && value.contains('@'))
-                            ? null
-                            : 'not valid email';
-                      },
-                    ),
-                    const HeightBox(20),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        prefixIcon: const Icon(Icons.credit_card),
-                        contentPadding: const EdgeInsets.all(8),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey.shade400),
+                      const HeightBox(20),
+                      TextFormField(
+                        decoration: InputDecoration(
+                          prefixIcon: const Icon(Icons.credit_card),
+                          contentPadding: const EdgeInsets.all(8),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey.shade400),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.secondary,
+                                width: 5),
+                          ),
+                          border: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey.shade400),
+                          ),
+                          labelText: 'Card number',
+                          labelStyle: TextStyle(color: Colors.grey[400]),
                         ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Theme.of(context).colorScheme.secondary,
-                              width: 5),
-                        ),
-                        border: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey.shade400),
-                        ),
-                        labelText: 'Card number',
-                        labelStyle: TextStyle(color: Colors.grey[400]),
+                        onSaved: (String? value) {
+                          // This optional block of code can be used to run
+                          // code when the user saves the form.
+                        },
+                        validator: (String? value) {
+                          return (value != null && value.contains('@'))
+                              ? null
+                              : 'not valid email';
+                        },
                       ),
-                      onSaved: (String? value) {
-                        // This optional block of code can be used to run
-                        // code when the user saves the form.
-                      },
-                      validator: (String? value) {
-                        return (value != null && value.contains('@'))
-                            ? null
-                            : 'not valid email';
-                      },
-                    ), 
-                    const HeightBox(20),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.all(8),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.grey.shade400),
+                      const HeightBox(20),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.all(8),
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.grey.shade400),
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
+                                      width: 5),
+                                ),
+                                border: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.grey.shade400),
+                                ),
+                                labelText: 'Date (MM/YY)',
+                                labelStyle: TextStyle(color: Colors.grey[400]),
                               ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color:
-                                        Theme.of(context).colorScheme.secondary,
-                                    width: 5),
+                              onSaved: (String? value) {},
+                              validator: (String? value) {
+                                return (value != null && value.contains('@'))
+                                    ? null
+                                    : 'not valid email';
+                              },
+                            ).pOnly(right: 8),
+                          ),
+                          Expanded(
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.all(8),
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.grey.shade400),
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
+                                      width: 5),
+                                ),
+                                border: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.grey.shade400),
+                                ),
+                                labelText: 'CVV',
+                                labelStyle: TextStyle(color: Colors.grey[400]),
                               ),
-                              border: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.grey.shade400),
-                              ),
-                              labelText: 'Date (MM/YY)',
-                              labelStyle: TextStyle(color: Colors.grey[400]),
-                            ),
-                            onSaved: (String? value) {},
-                            validator: (String? value) {
-                              return (value != null && value.contains('@'))
-                                  ? null
-                                  : 'not valid email';
-                            },
-                          ).pOnly(right: 8),
-                        ),
-                        Expanded(
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.all(8),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.grey.shade400),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color:
-                                        Theme.of(context).colorScheme.secondary,
-                                    width: 5),
-                              ),
-                              border: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.grey.shade400),
-                              ),
-                              labelText: 'CVV',
-                              labelStyle: TextStyle(color: Colors.grey[400]),
-                            ),
-                            onSaved: (String? value) {
-                              // This optional block of code can be used to run
-                              // code when the user saves the form.
-                            },
-                            validator: (String? value) {
-                              return (value != null && value.contains('@'))
-                                  ? null
-                                  : 'not valid email';
-                            },
-                          ).pOnly(right: 8),
-                        ),
-                      ],
-                    ),
-                    const HeightBox(20),
+                              onSaved: (String? value) {
+                                // This optional block of code can be used to run
+                                // code when the user saves the form.
+                              },
+                              validator: (String? value) {
+                                return (value != null && value.contains('@'))
+                                    ? null
+                                    : 'not valid email';
+                              },
+                            ).pOnly(right: 8),
+                          ),
+                        ],
+                      ),
+                      const HeightBox(20),
+                    } else if (selectedIndex == 1) ...{
+                      HeightBox(20)
+                    }
                   ],
                 ).p16(),
               ),

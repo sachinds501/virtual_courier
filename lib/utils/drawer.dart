@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, must_be_immutable
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -10,8 +11,15 @@ import 'package:virtual_courier/pages/drawer_pages/profile/view_profile.dart';
 import 'package:virtual_courier/pages/drawer_pages/promocode.dart';
 import 'package:virtual_courier/utils/routes.dart';
 
-class MyDrawer extends StatelessWidget {
-  MyDrawer({Key? key}) : super(key: key);
+class MyDrawer extends StatefulWidget {
+  const MyDrawer({Key? key}) : super(key: key);
+
+  @override
+  State<MyDrawer> createState() => _MyDrawerState();
+}
+
+class _MyDrawerState extends State<MyDrawer> {
+  // final _emailController = FirebaseAuth.instance.currentUser().getEmail();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +46,14 @@ class MyDrawer extends StatelessWidget {
                         fit: BoxFit.fitWidth,
                       ),
                     ),
-                    title: 'Edward Mwongera'.text.size(16).bold.make(),
+                    title: FirebaseAuth.instance.currentUser != null
+                        ? FirebaseAuth.instance.currentUser!.displayName
+                            .toString()
+                            .text
+                            .size(16)
+                            .bold
+                            .make()
+                        : "Krishna".text.size(16).bold.make(),
                     subtitle: 'View Profile'
                         .text
                         .size(12)
@@ -98,7 +113,9 @@ class MyDrawer extends StatelessWidget {
       color: Colors.black,
     ),
   ];
+
   List<String> strings = ['Profile', 'Payment', 'Orders', 'Promotions', 'Help'];
+
   List<Widget> routes = [
     ViewProfilePage(),
     PaymentPage(),
